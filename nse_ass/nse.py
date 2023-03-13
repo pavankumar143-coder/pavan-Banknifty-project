@@ -21,3 +21,8 @@ for tr in option_chain_table.find_all('tr'):
         row.append(td.text.strip())
     if row:
         data.append(row)
+        
+# Print the headers and data
+print(headers)
+for row in data:
+    print(row)
