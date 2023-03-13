@@ -5,3 +5,5 @@ url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain
 
 headers = {'User-Agent': 'Mozilla/5.0'}
 response = requests.get(url, headers=headers)
+soup = BeautifulSoup(response.content, 'html.parser')
+option_chain_table = soup.find(id="octable")
