@@ -7,3 +7,8 @@ headers = {'User-Agent': 'Mozilla/5.0'}
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.content, 'html.parser')
 option_chain_table = soup.find(id="octable")
+
+# Extract the headers from the table
+headers = []
+for th in option_chain_table.find_all('th'):
+    headers.append(th.text.strip())
