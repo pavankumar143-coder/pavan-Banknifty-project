@@ -12,3 +12,12 @@ option_chain_table = soup.find(id="octable")
 headers = []
 for th in option_chain_table.find_all('th'):
     headers.append(th.text.strip())
+    
+# Extract the data rows from the table
+data = []
+for tr in option_chain_table.find_all('tr'):
+    row = []
+    for td in tr.find_all('td'):
+        row.append(td.text.strip())
+    if row:
+        data.append(row)
